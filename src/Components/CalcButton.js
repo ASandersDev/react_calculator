@@ -1,9 +1,14 @@
 import React from 'react'
 
 function CalcButton(props) {
+
+    function buttonClick(){
+        props.handleClick(props.buttonValue);
+    }
+
     return (
         <>
-            <input className = 'calcButton' type = 'button' name = 'calcButton' value = {props.buttonValue} />
+            <input onClick = {buttonClick} className = 'calcButton' type = 'button' name = 'calcButton' value = {props.buttonValue} />
         </>
     )
 }

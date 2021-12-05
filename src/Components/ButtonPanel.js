@@ -1,28 +1,34 @@
 import React from 'react'
 import CalcButton from './CalcButton'
 
-function ButtonPanel() {
+function ButtonPanel(props) {
+
+    function getValue(value){
+        props.handleClick(value);
+    }
+
+
     return (
         <div className = 'buttonPanel'>
-            <CalcButton buttonValue = '1' />
-            <CalcButton buttonValue = '2' />
-            <CalcButton buttonValue = '3' />
-            <CalcButton buttonValue = '+' />
+            <CalcButton handleClick = {getValue} buttonValue = '1' />
+            <CalcButton handleClick = {getValue} buttonValue = '2' />
+            <CalcButton handleClick = {getValue} buttonValue = '3' />
+            <CalcButton handleClick = {getValue} buttonValue = '+' />
 
-            <CalcButton buttonValue = '4' />
-            <CalcButton buttonValue = '5' />
-            <CalcButton buttonValue = '6' />
-            <CalcButton buttonValue = '-' />
+            <CalcButton handleClick = {getValue} buttonValue = '4' />
+            <CalcButton handleClick = {getValue} buttonValue = '5' />
+            <CalcButton handleClick = {getValue} buttonValue = '6' />
+            <CalcButton handleClick = {getValue} buttonValue = '-' />
 
-            <CalcButton buttonValue = '7' />
-            <CalcButton buttonValue = '8' />
-            <CalcButton buttonValue = '9' />
-            <CalcButton buttonValue = 'X' />
+            <CalcButton handleClick = {getValue} buttonValue = '7' />
+            <CalcButton handleClick = {getValue} buttonValue = '8' />
+            <CalcButton handleClick = {getValue} buttonValue = '9' />
+            <CalcButton handleClick = {getValue} buttonValue = 'X' />
 
-            <CalcButton buttonValue = 'C' />
-            <CalcButton buttonValue = '0' />
-            <CalcButton buttonValue = '=' />
-            <CalcButton buttonValue = '/' />
+            <CalcButton handleClick = {getValue} buttonValue = 'C' />
+            <CalcButton handleClick = {getValue} buttonValue = '0' />
+            <CalcButton handleClick = {getValue} buttonValue = '=' />
+            <CalcButton handleClick = {getValue} buttonValue = '/' />
         </div>
     )
 }
