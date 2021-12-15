@@ -27,8 +27,9 @@ function ButtonPanel(props) {
 
             <CalcButton handleClick = {getValue} buttonValue = 'C' />
             <CalcButton handleClick = {getValue} buttonValue = '0' />
-            <CalcButton handleClick = {getValue} buttonValue = '=' />
+            <CalcButton handleClick = {getValue} buttonValue = '.' />
             <CalcButton handleClick = {getValue} buttonValue = '/' />
+            <CalcButton handleClick = {getValue} buttonValue = '=' />
         </div>
     )
 }

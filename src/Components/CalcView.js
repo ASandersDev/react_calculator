@@ -3,7 +3,7 @@ import React from 'react'
 function CalcView(props) {
 
     return (
-        <span className="calcView">
+        <span className = {props.viewStyle} >
             <div>
                 {props.viewport}
             </div>

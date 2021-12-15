@@ -23,13 +23,13 @@ function evaluate(currentArray, calcObject, value, setcurrentArray, setCalcObjec
             }
 
              else if(value === '='){
-                if(calcObject.primaryValue.isSet){
+                if(calcObject.primaryValue.isSet && calcObject.currentOperator ){
                         let calcResult = calculate(calcObject.primaryValue.value, currentArray, calcObject.currentOperator);
 
                     setcurrentArray([calcResult]);
 
                     setCalcObject({
-                        ...calcObject,
+                        currentOperator: null,
                         lastSelected: value,
                         primaryValue: {
                             ...calcObject.primaryValue,
@@ -93,18 +93,32 @@ function evaluate(currentArray, calcObject, value, setcurrentArray, setCalcObjec
 
 //If value was a number
     else{
-        //If starting at zero or last value was operator, replace zero with input value. This is start of the secondary number
+        //If starting at zero or last value was operator, replace zero or last value with new input.
         if((currentArray.length === 1 && currentArray[0] === '0') || operators.includes(calcObject.lastSelected)){
 
             setcurrentArray([value]);
 
-            setCalcObject({
-                ...calcObject,
-                lastSelected: value,
-                primaryValue: {
-                    ...calcObject.primaryValue
-                }
-            });
+            //If last selected was '=', then a new primary number is being entered. primaryValue should be reset and isSet set to false.
+            if(calcObject.lastSelected === '='){
+                setCalcObject({
+                    ...calcObject,
+                    lastSelected: value,
+                    primaryValue: {
+                        value: ['0'],
+                        isSet: false
+                    }
+                });
+
+            }else{
+                
+                setCalcObject({
+                    ...calcObject,
+                    lastSelected: value,
+                    primaryValue: {
+                        ...calcObject.primaryValue
+                    }
+                });
+            }
 
             return;
         }

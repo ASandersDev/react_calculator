@@ -17,9 +17,13 @@ function CalcContainer() {
         lastSelected: null
     });
 
+    console.log(currentArray);
+    console.log(calcObject);
+
     return (
         <div className = 'calcContainer'>
-            <CalcView viewport = {currentArray} />
+            <CalcView viewport = {currentArray} viewStyle = "mainView" />
+            <CalcView viewport = {calcObject.currentOperator} viewStyle = "operatorView" />
             <hr style = {{width: "100%"}} />
             <ButtonPanel handleClick={(value) => {
                 evaluate(currentArray, calcObject, value, setcurrentArray, setCalcObject)

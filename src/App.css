@@ -29,7 +29,6 @@
 }
 
 .calcContainer {
-  height: 400px;
   width: 350px;
   background-color: grey;
   border: 5px solid white;
@@ -39,7 +38,7 @@
   align-items: center;
 }
 
-.calcView {
+.mainView {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -53,8 +52,23 @@
   color: black;
 }
 
-.calcView div {
+.mainView div {
   margin-right: 15px;
+}
+
+.operatorView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  margin-right: 28px;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 5px;
+  font-size: 0.8em;
+  color: black;
 }
 
 .buttonPanel {
